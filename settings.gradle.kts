@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Android MVI Compose"
-include ':app'
+include(":app")
