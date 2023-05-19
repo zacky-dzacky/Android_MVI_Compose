@@ -1,1 +1,0 @@
-/Users/zackysyarief/AndroidStudioProjects/Android_MVI_Compose/buildSrc/build/classes/kotlin/main/Config.class
