@@ -11,6 +11,8 @@ MVI stands for Model View Intent
 ### Custom Component
 ### Modular Features
 
+
+
 ## Jetpack Compose
 To start set up project with compose, use this link https://developer.android.com/jetpack/compose/setup as a reference
 * https://developer.android.com/codelabs/jetpack-compose-layouts#1
