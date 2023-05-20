@@ -7,6 +7,9 @@ Hi folks, I make this repository as a skeleton for modern way of maintaining and
 MVI stands for Model View Intent
 
 ## Modular Architecture
+### Dynamic Feature Module
+### Custom Component
+### Modular Features
 
 ## Jetpack Compose
 To start set up project with compose, use this link https://developer.android.com/jetpack/compose/setup as a reference
