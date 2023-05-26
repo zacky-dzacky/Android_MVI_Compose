@@ -11,7 +11,7 @@ MVI stands for Model View Intent
 ### Custom Component
 ### Modular Features
 Modular architecture make each features more independent when our application getting bigger. Android Developer teams release a very good feature to handle 
-modular architecture named <b><a href="https://android.google.com">Dynamic Feature Module</a></b>.
+modular architecture named <b><a href="https://developer.android.com/guide/playcore/feature-delivery">Dynamic Feature Module</a></b>.
 ###
 ## Jetpack Compose
 To start set up project with compose, use this link https://developer.android.com/jetpack/compose/setup as a reference
