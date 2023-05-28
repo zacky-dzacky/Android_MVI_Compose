@@ -14,7 +14,7 @@
 
     <application>
         <activity
-            android:name=".HomeScreen"
+            android:name=".HomeActivity"
             android:exported="false" />
     </application>
 

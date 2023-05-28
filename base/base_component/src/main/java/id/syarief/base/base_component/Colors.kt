@@ -1,4 +1,4 @@
-package id.syarief.android_mvi_compose.ui
+package id.syarief.base.base_component
 
 /*
  * Copyright 2021 The Android Open Source Project

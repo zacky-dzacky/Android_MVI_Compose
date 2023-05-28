@@ -11,6 +11,23 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility =  JavaVersion.VERSION_1_8
+        targetCompatibility =  JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        if (configurations.findByName("kotlinCompilerPluginClasspath")
+                ?.dependencies
+                ?.any { it.group == "androidx.compose.compiler" } == true) {
+            freeCompilerArgs += listOf(
+                "-P", "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true"
+            )
+        }
+
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = Config.isMinifyEnabled
@@ -23,5 +40,6 @@ android {
 }
 
 dependencies {
+    implementation(project(":app"))
     implementation(project(":base:base_component"))
 }
