@@ -1,4 +1,4 @@
-package id.syarief.android_mvi_compose
+package id.syarief.base.base_component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.material.MaterialTheme

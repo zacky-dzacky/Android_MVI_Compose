@@ -102,8 +102,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.ui.input.pointer.util.VelocityTracker
-import androidx.compose.ui.res.stringArrayResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
@@ -111,8 +109,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import id.syarief.android_mvi_compose.R
-import id.syarief.android_mvi_compose.BaseTheme
+import id.syarief.base.base_component.BaseTheme
 import id.syarief.android_mvi_compose.ui.Amber600
 import id.syarief.android_mvi_compose.ui.Green300
 import id.syarief.android_mvi_compose.ui.Green800
@@ -745,7 +742,7 @@ private fun PreviewHomeTabBar() {
 @Preview
 @Composable
 private fun PreviewHome() {
-    BaseTheme {
+    id.syarief.base.base_component.BaseTheme {
         Home()
     }
 }
