@@ -7,14 +7,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
-class SplashScreen : Activity() {
+class SplashScreen : ComponentActivity() {
 
-    var asdf = true
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class SplashScreen : Activity() {
                 1f,
                 0f
             )
-            alpha.duration = 500L
+            alpha.duration = 800L
             alpha.doOnEnd {
                 splashScreenView.remove()
                 val intent = Intent()
