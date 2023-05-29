@@ -15,11 +15,12 @@ a very good feature to handle modular architecture named
 <b><a href="https://developer.android.com/guide/playcore/feature-delivery">Dynamic Feature Module</a></b>.
 This separating kind of modules into: 
 * app
+  * Splash Screen : https://developer.android.com/develop/ui/views/launch/splash-screen
 * module
 * base
-  ** base_api
-  ** base_component
-  ** base_helper
+  * base_api
+  * base_component
+  * base_helper
 
 ###
 ## Jetpack Compose
