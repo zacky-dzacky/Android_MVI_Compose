@@ -4,10 +4,10 @@ plugins {
 }
 android {
     namespace = "id.syarief.module.module_detail"
-    compileSdk = 33
+    compileSdk = Config.compiledSDK
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Config.minSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
