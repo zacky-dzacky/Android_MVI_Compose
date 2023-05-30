@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = Config.namespace
+    namespace = "id.syarief.module.module_home"
     compileSdk = Config.compiledSDK
 
     defaultConfig {
