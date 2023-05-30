@@ -30,7 +30,7 @@ class SplashScreen : ComponentActivity() {
             alpha.doOnEnd {
                 splashScreenView.remove()
                 val intent = Intent()
-                intent.setClassName(this.packageName,"id.syarief.android_mvi_compose.module.module_home.HomeActivity")
+                intent.setClassName(this.packageName,"id.syarief.module.module_home.HomeActivity")
                 startActivity(intent)
                 finish()
             }
