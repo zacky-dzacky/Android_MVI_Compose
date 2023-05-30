@@ -3,12 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = "id.syarief.module.module_home"
+    namespace = Config.namespace
     compileSdk = Config.compiledSDK
 
     defaultConfig {
         minSdk = Config.minSdk
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.testInstrumentationRunner
     }
 
     compileOptions {
@@ -20,33 +20,33 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.5"
+        kotlinCompilerExtensionVersion = Config.kotlinCompilerExtensionVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Config.jvmTarget
     }
 
     buildTypes {
         release {
             isMinifyEnabled = Config.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Dependency.Proguard.ANDROID_OPTIMIZED),
+                Dependency.Proguard.PROGUARD_RULES
             )
         }
     }
 }
 
 dependencies {
-    implementation(project(":app"))
-    implementation(project(":base:base_component"))
+    implementation(project(Module.APP))
+    implementation(project(Module.BASE_COMPONENT))
 
-    implementation("androidx.core:core-ktx:1.8.0")
+    implementation(Dependency.CoreLibrary.KTX)
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(Dependency.TestLibrary.JUNIT)
+    androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
+    androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
 }
