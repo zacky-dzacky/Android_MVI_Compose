@@ -3,30 +3,30 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = "id.syarief.module.module_contact"
-    compileSdk = 33
+    namespace = Config.namespace
+    compileSdk = Config.compiledSDK
 
     defaultConfig {
-        minSdk = 24
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = Config.minSdk
+        testInstrumentationRunner = Config.testInstrumentationRunner
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = Config.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Dependency.Proguard.ANDROID_OPTIMIZED),
+                Dependency.Proguard.PROGUARD_RULES
             )
         }
     }
 }
 
 dependencies {
-    implementation(project(":app"))
-    implementation("androidx.core:core-ktx:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.annotation:annotation:1.3.0")
+    implementation(project(Module.APP))
+    implementation(Dependency.CoreLibrary.KTX)
+    testImplementation(Dependency.TestLibrary.JUNIT)
+    androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
+    androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
+    androidTestImplementation(Dependency.TestLibrary.ANNOTATION)
 }
