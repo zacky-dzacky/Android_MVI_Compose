@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Config.namespace
+    namespace = Config.namespaceBaseApi
     compileSdk = Config.compiledSDK
 
     defaultConfig {
@@ -36,6 +36,9 @@ android {
 dependencies {
 
     implementation(Dependency.CoreLibrary.KTX)
+    implementation(Dependency.APILibrary.KTOR_CORE)
+    implementation(Dependency.APILibrary.KTOR_ANDROID)
+    implementation(Dependency.APILibrary.KTOR_SERIALIZATION)
     testImplementation(Dependency.TestLibrary.JUNIT)
     androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
     androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
