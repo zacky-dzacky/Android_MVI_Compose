@@ -40,6 +40,7 @@ android {
 dependencies {
     implementation(project(Module.APP))
     implementation(project(Module.BASE_COMPONENT))
+    implementation(project(Module.API_PROFILE))
 
     implementation(Dependency.CoreLibrary.KTX)
     implementation("androidx.appcompat:appcompat:1.6.1")

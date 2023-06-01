@@ -8,4 +8,5 @@ object Module {
     const val MODULE_HOME = ":module:module_home"
     const val MODULE_DETAIL = ":module:module_detail"
     const val MODULE_CONTACT = ":module:module_contact"
+    const val API_PROFILE = ":api:api_profile"
 }
