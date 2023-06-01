@@ -5,6 +5,8 @@ Hi folks, I make this repository as a skeleton for modern way of maintaining and
 
 ## MVI
 MVI stands for Model View Intent
+Reference 
+* https://github.com/Kotlin-Android-Open-Source/MVI-Coroutines-Flow
 
 ## Modular Architecture
 ### Dynamic Feature Module
@@ -19,6 +21,9 @@ This separating kind of modules into:
 * module
 * base
   * base_api
+    * Ktor 
+      We use HTTP client library fully written in Kotlin. With Ktor we got Kotlin & Coroutine, Lightweight & Flexible, and Backed by Jetbrains.
+      <a href="https://ktor.io">Read More</a>
   * base_component
   * base_helper
 
@@ -26,3 +31,6 @@ This separating kind of modules into:
 ## Jetpack Compose
 To start set up project with compose, use this link https://developer.android.com/jetpack/compose/setup as a reference
 * https://developer.android.com/codelabs/jetpack-compose-layouts#1
+
+
+* Gradle Version : 8.0
