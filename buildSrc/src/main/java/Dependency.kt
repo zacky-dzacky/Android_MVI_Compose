@@ -25,8 +25,9 @@ class Dependency {
     }
 
     object APILibrary {
-        const val KTOR_CORE = "io.ktor:ktor-client-core:1.6.7"
-        const val KTOR_ANDROID = "io.ktor:ktor-client-android:1.6.7"
-        const val KTOR_SERIALIZATION = "io.ktor:ktor-client-serialization:1.6.7"
+        const val KTOR_CORE = "io.ktor:ktor-client-core:2.1.3"
+        const val KTOR_ANDROID = "io.ktor:ktor-client-android:2.1.3"
+        const val KTOR_SERIALIZATION = "io.ktor:ktor-serialization-gson:2.1.3"
+        const val KTOR_LOGGING = "io.ktor:ktor-client-logging:2.1.3"
     }
 }

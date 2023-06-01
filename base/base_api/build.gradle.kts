@@ -35,10 +35,16 @@ android {
 
 dependencies {
 
-    implementation(Dependency.CoreLibrary.KTX)
-    implementation(Dependency.APILibrary.KTOR_CORE)
-    implementation(Dependency.APILibrary.KTOR_ANDROID)
-    implementation(Dependency.APILibrary.KTOR_SERIALIZATION)
+    api(Dependency.CoreLibrary.KTX)
+    api(Dependency.APILibrary.KTOR_CORE)
+    api(Dependency.APILibrary.KTOR_ANDROID)
+    api(Dependency.APILibrary.KTOR_SERIALIZATION)
+    api(Dependency.APILibrary.KTOR_LOGGING)
+    api("io.ktor:ktor-client-content-negotiation:2.1.3")
+    api("com.google.code.gson:gson:2.8.9")
+    api("io.insert-koin:koin-ktor:3.1.5")
+
+    api("com.google.code.gson:gson:2.8.9")
     testImplementation(Dependency.TestLibrary.JUNIT)
     androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
     androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
