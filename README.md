@@ -1,5 +1,5 @@
 # Android MVI Compose
-Hi folks, I make this repository as a skeleton for modern way of maintaining android App. 
+Hi folks, We make this repository as a skeleton for modern way of maintaining android App. 
 
 ## Using Kotlin DSL
 
@@ -34,3 +34,7 @@ To start set up project with compose, use this link https://developer.android.co
 
 
 * Gradle Version : 8.0
+
+
+## Collaborators
+We very welcome for you to collaborate with us
