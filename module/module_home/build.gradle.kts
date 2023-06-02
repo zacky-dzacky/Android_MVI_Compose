@@ -38,14 +38,11 @@ android {
 }
 
 dependencies {
-    implementation(project(Module.APP))
-    implementation(project(Module.BASE_COMPONENT))
-    implementation(project(Module.API_PROFILE))
+    implementation(app)
+    implementation(baseComponent)
+    implementation(apiProfile)
 
     implementation(Dependency.CoreLibrary.KTX)
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     testImplementation(Dependency.TestLibrary.JUNIT)
     androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)

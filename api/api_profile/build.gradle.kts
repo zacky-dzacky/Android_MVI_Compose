@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "id.syarief.android.mvi_compose.api.api_list"
+    namespace = "id.syarief.android.mvi_compose.api.api_profile"
     compileSdk = 33
 
     defaultConfig {
@@ -34,11 +34,7 @@ android {
 }
 
 dependencies {
-
     importBaseAPI()
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

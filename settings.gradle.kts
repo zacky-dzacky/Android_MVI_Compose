@@ -13,13 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Android MVI Compose"
-include(":app")
-include(":base")
-include(":module")
-include(":base:base_component")
-include(":base:base_api")
-include(":module:module_contact")
-include(":module:module_home")
-include(":module:module_detail")
-include(":base:base_helper")
-include(":module:module_login")
+include(":app", ":base", ":module")
+include(":base:base_component", "base:base_api", ":base:base_mvi", ":base:base_helper")
+include(":api:api_profile", ":api:api_list")
+include(":module:module_contact", ":module:module_home", ":module:module_detail", ":module:module_login")
