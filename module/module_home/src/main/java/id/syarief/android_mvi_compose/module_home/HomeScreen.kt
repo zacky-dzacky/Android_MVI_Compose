@@ -1,4 +1,4 @@
-package id.syarief.module.module_home
+package id.syarief.android_mvi_compose.module_home
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColor

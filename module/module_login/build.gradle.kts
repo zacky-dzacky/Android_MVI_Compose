@@ -5,14 +5,11 @@ plugins {
 
 android {
     namespace = "${Config.namespace}.module_login"
-    compileSdk = 33
+    compileSdk = Config.compiledSDK
 
     defaultConfig {
-        applicationId = "com.samrez.module_login"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

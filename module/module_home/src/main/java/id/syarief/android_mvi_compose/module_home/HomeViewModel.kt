@@ -1,4 +1,4 @@
-package id.syarief.module.module_home
+package id.syarief.android_mvi_compose.module_home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

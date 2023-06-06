@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(baseHelper)
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.CoreLibrary.SPLASH_SCREEN)
     implementation("androidx.appcompat:appcompat:1.6.1")
