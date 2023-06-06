@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = "id.syarief.module.module_home"
+    namespace = "${Config.namespace}.module_home"
     compileSdk = Config.compiledSDK
 
     defaultConfig {
@@ -43,8 +43,6 @@ dependencies {
     implementation(apiProfile)
 
     implementation(Dependency.CoreLibrary.KTX)
-
-    testImplementation(Dependency.TestLibrary.JUNIT)
-    androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
-    androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
+    importUnitTest()
+    importAndroidTest()
 }

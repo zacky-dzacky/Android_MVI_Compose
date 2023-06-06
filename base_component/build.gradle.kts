@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Config.namespace
+    namespace = "${Config.namespace}.base_component"
     compileSdk = Config.compiledSDK
 
     defaultConfig {

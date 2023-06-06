@@ -94,8 +94,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import id.syarief.base.base_component.Amber600
-import id.syarief.base.base_component.BaseTheme
-import id.syarief.base.base_component.Green300
 import id.syarief.base.base_component.Green800
 import id.syarief.base.base_component.Purple100
 import id.syarief.base.base_component.Purple700

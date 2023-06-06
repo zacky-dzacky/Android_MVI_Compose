@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.samrez.module_login"
+    namespace = "${Config.namespace}.module_login"
     compileSdk = 33
 
     defaultConfig {
