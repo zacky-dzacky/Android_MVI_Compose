@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = Config.namespace
+    namespace = "${Config.namespace}.module_detail"
     compileSdk = Config.compiledSDK
 
     defaultConfig {
@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation(project(Module.APP))
+    implementation(app)
     implementation(Dependency.CoreLibrary.KTX)
     testImplementation(Dependency.TestLibrary.JUNIT)
     androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)

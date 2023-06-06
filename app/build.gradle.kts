@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(baseHelper)
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.CoreLibrary.SPLASH_SCREEN)
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -57,8 +58,6 @@ dependencies {
 //    testImplementation("junit:junit:4.13.2")
 //    androidTestImplementation("androidx.test.ext:junit:1.1.5")
 //    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-//    implementation(project(":base:base_component"))
 
     val composeBom = platform(Dependency.ComposeLibrary.COMPOSE_BOM)
     implementation(composeBom)

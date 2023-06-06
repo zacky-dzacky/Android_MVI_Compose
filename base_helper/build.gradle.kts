@@ -1,14 +1,18 @@
 plugins {
-    id("com.android.dynamic-feature")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
+
 android {
-    namespace = "${Config.namespace}.module_contact"
+    namespace = "${Config.namespace}.base_helper"
     compileSdk = Config.compiledSDK
 
     defaultConfig {
         minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
+
         testInstrumentationRunner = Config.testInstrumentationRunner
+        consumerProguardFiles(Dependency.Proguard.CONSUMER_RULES)
     }
 
     buildTypes {
@@ -20,11 +24,19 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Config.jvmTarget
+    }
 }
 
 dependencies {
-    implementation(app)
+
     implementation(Dependency.CoreLibrary.KTX)
     testImplementation(Dependency.TestLibrary.JUNIT)
-    importAndroidTest()
+    androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
+    androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)
 }
