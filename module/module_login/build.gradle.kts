@@ -4,12 +4,17 @@ plugins {
 }
 
 android {
-    namespace = "com.samrez.module_login"
+    namespace = "${Config.namespace}.module_login"
     compileSdk = Config.compiledSDK
 
     defaultConfig {
         minSdk = Config.minSdk
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        targetSdk = Config.targetSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -51,6 +56,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.0.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    importUnitTest()
     testImplementation(Dependency.TestLibrary.JUNIT)
     androidTestImplementation(Dependency.TestLibrary.EXT_JUNIT)
     androidTestImplementation(Dependency.TestLibrary.ESPRESSO_CORE)

@@ -1,3 +1,6 @@
+import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
+
 class Dependency {
 
     object Proguard {
@@ -29,5 +32,40 @@ class Dependency {
         const val KTOR_ANDROID = "io.ktor:ktor-client-android:2.1.3"
         const val KTOR_SERIALIZATION = "io.ktor:ktor-serialization-gson:2.1.3"
         const val KTOR_LOGGING = "io.ktor:ktor-client-logging:2.1.3"
+        const val KTOR_CONTENTNEGOTIATION = "io.ktor:ktor-client-content-negotiation:2.1.3"
     }
 }
+fun DependencyHandler.importUnitTest(testImplementation: Boolean = true) {
+    val configName = if (testImplementation) "testImplementation" else "implementation"
+
+    add(configName, Dependency.TestLibrary.JUNIT)
+}
+
+fun DependencyHandler.importAndroidTest(androidTestImplementation: Boolean = true) {
+    val configName = "androidTestImplementation"
+
+    add(configName, Dependency.TestLibrary.EXT_JUNIT)
+    add(configName, Dependency.TestLibrary.ESPRESSO_CORE)
+    add(configName, Dependency.TestLibrary.ANNOTATION)
+}
+
+fun DependencyHandler.importBaseAPI() {
+    val configName = "implementation"
+    add(configName, Dependency.APILibrary.KTOR_ANDROID)
+    add(configName, Dependency.APILibrary.KTOR_CONTENTNEGOTIATION)
+    add(configName, Dependency.APILibrary.KTOR_CORE)
+    add(configName, Dependency.APILibrary.KTOR_SERIALIZATION)
+    add(configName, Dependency.APILibrary.KTOR_LOGGING)
+}
+
+inline val DependencyHandler.apiProfile get() = project(":api_profile")
+inline val DependencyHandler.apiList get() = project(":api_list")
+inline val DependencyHandler.baseApi get() = project(":base_api")
+inline val DependencyHandler.baseComponent get() = project(":base_component")
+inline val DependencyHandler.baseHelper get() = project(":base_helper")
+inline val DependencyHandler.baseMvi get() = project(":base_mvi")
+inline val DependencyHandler.moduleContact get() = project(":module:module_contact")
+inline val DependencyHandler.moduleHome get() = project(":module:module_home")
+inline val DependencyHandler.moduleDetail get() = project(":module:module_datail")
+inline val DependencyHandler.moduleLogin get() = project(":module:module_login")
+inline val DependencyHandler.app get() = project(":app")

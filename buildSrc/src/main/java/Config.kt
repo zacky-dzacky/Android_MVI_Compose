@@ -1,7 +1,6 @@
 object Config {
     const val projectName = "Android MVI Compose"
     const val namespace = "id.syarief.android_mvi_compose"
-    const val namespaceBaseApi = "id.syarief.base.base_api"
     const val compiledSDK = 33
     const val applicationID = "id.syarief.android_mvi_compose"
     const val minSdk = 24

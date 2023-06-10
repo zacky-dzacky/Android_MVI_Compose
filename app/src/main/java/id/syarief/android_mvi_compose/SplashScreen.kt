@@ -12,6 +12,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import id.syarief.base.base_helper.ModuleManifest
+import id.syarief.base.base_helper.ModuleManifest.ACTIVITY_HOME
+import id.syarief.base.base_helper.Navigator
 
 class SplashScreen : ComponentActivity() {
 
@@ -29,9 +32,7 @@ class SplashScreen : ComponentActivity() {
             alpha.duration = 800L
             alpha.doOnEnd {
                 splashScreenView.remove()
-                val intent = Intent()
-                intent.setClassName(this.packageName,"id.syarief.module.module_home.HomeActivity")
-                startActivity(intent)
+                Navigator.navigate(this@SplashScreen, ACTIVITY_HOME)
                 finish()
             }
             alpha.start()
