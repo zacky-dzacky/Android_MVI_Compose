@@ -23,4 +23,11 @@ class Dependency {
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
         const val ANNOTATION = "androidx.annotation:annotation:1.3.0"
     }
+
+    object APILibrary {
+        const val KTOR_CORE = "io.ktor:ktor-client-core:2.1.3"
+        const val KTOR_ANDROID = "io.ktor:ktor-client-android:2.1.3"
+        const val KTOR_SERIALIZATION = "io.ktor:ktor-serialization-gson:2.1.3"
+        const val KTOR_LOGGING = "io.ktor:ktor-client-logging:2.1.3"
+    }
 }
