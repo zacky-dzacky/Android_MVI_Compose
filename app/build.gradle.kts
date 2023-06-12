@@ -44,7 +44,8 @@ android {
     dynamicFeatures += setOf(
         Module.MODULE_CONTACT,
         Module.MODULE_HOME,
-        Module.MODULE_DETAIL
+        Module.MODULE_DETAIL,
+        Module.MODULE_LOGIN
     )
 }
 
