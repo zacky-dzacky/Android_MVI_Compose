@@ -1,10 +1,13 @@
 package com.samrez.module_login
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -15,9 +18,20 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,6 +42,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.samrez.module_login.ui.theme.AndroidMVIComposeTheme
@@ -54,7 +70,6 @@ fun Item(answer: Answer, isSelected: Boolean, onAnswerSelected: ((Answer) -> Uni
     ) {
         Row (modifier = Modifier
             .fillMaxWidth()
-            .background(color = if (isSelected) Color.Cyan else Color.White)
             .clip(CircleShape)
             .padding(16.dp)
 
@@ -75,10 +90,7 @@ fun Item(answer: Answer, isSelected: Boolean, onAnswerSelected: ((Answer) -> Uni
 
 data class Answer(val image: Int, val name: String, val desc: String?, val clickable: Boolean)
 
-@Preview(
-    showBackground = true,
-    name = "Light Mode"
-)
+
 @Composable
 fun GreetingPreview() {
     val data = mutableListOf<Answer>()
@@ -97,6 +109,91 @@ fun GreetingPreview() {
                     onAnswerSelected = { answer -> selectedAnswer = answer }
                 )
             }
+        }
+    }
+}
+
+@Preview(
+    showBackground = true,
+    widthDp = 420,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Composable
+fun showColumn(){
+    AndroidMVIComposeTheme {
+        Surface(modifier = Modifier.fillMaxWidth()) {
+            Greetings()
+        }
+    }
+}
+
+@Composable
+private fun Greetings(
+    modifier: Modifier = Modifier,
+    names: List<String> = List(1000) { "$it" }
+) {
+    LazyColumn(
+        modifier = Modifier.padding(vertical = 4.dp)
+    ) {
+        items(items = names) { name ->
+            Greeting(name = name)
+        }
+    }
+}
+
+@Composable
+private fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        CardContent(name)
+    }
+}
+
+@Composable
+private fun CardContent(name: String) {
+    var expanded by rememberSaveable { mutableStateOf(false) }
+
+    Row(
+        modifier = Modifier
+            .padding(12.dp)
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            )
+    ) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(12.dp)
+        ) {
+            Text(text = "Hello, ")
+            Text(
+                text = name, style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.ExtraBold
+                )
+            )
+            if (expanded) {
+                Text(
+                    text = ("Composem ipsum color sit lazy, " +
+                            "padding theme elit, sed do bouncy. ").repeat(4),
+                )
+            }
+        }
+        IconButton(onClick = { expanded = !expanded }) {
+            Icon(
+                imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                contentDescription = if (expanded) {
+                    stringResource(R.string.show_less)
+                } else {
+                    stringResource(R.string.show_more)
+                }
+            )
         }
     }
 }
