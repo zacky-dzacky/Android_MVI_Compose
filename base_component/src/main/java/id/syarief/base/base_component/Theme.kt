@@ -2,22 +2,23 @@ package id.syarief.base.base_component
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-private val DarkColorPalette = darkColors(
+private val DarkColorPalette = darkColorScheme(
     primary = Color.Blue,
-    primaryVariant = Color.Blue,
-    secondary = Color.Blue
-)
-
-private val LightColorPalette = lightColors(
-    primary = Color.Blue,
-    primaryVariant = Color.Blue,
+    onPrimary = Color.Blue,
     secondary = Color.Blue,
     background = Color.White
+)
+
+private val LightColorPalette = lightColorScheme(
+    primary = Color.Blue,
+    onPrimary = Color.Blue,
+    secondary = Color.Blue,
+    background = Color.LightGray
 
     /* Other default colors to override
     background = Color.White,
@@ -37,7 +38,7 @@ fun BaseTheme(darkTheme: Boolean = isSystemInDarkTheme(),  content: @Composable 
         LightColorPalette
     }
     MaterialTheme(
-        colors = colors,
+        colorScheme = colors,
         content = content
     )
 }

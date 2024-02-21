@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.com.google.api.services.storage.Storage.Objects.Compose
+
 plugins {
     id("com.android.dynamic-feature")
     id("org.jetbrains.kotlin.android")
@@ -40,9 +42,8 @@ android {
 
 dependencies {
     implementation(app)
+    implementation(baseComponent)
     implementation(apiProfile)
-
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()
-    importAndroidTest()
 }

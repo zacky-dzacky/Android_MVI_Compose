@@ -41,7 +41,7 @@ android {
 
 dependencies {
     implementation(app)
+    implementation(baseComponent)
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()
-    importAndroidTest()
 }

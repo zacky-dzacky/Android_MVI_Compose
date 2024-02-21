@@ -13,11 +13,20 @@ class Dependency {
         const val SPLASH_SCREEN = "androidx.core:core-splashscreen:1.0.0"
     }
     object ComposeLibrary {
-        const val COMPOSE_BOM = "androidx.compose:compose-bom:2023.04.01"
-        const val COMPOSE_MATERIAL_3 = "androidx.compose.material3:material3:1.0.1"
+        const val COMPOSE_BOM = "androidx.compose:compose-bom:2022.10.00"
+        const val COMPOSE_MATERIAL_3 = "androidx.compose.material3:material3"
+        const val COMPOSE_MATERIAL_ICON_EXTENDED = "androidx.compose.material:material-icons-extended"
         const val COMPOSE_MATERIAL_2 = "androidx.compose.material:material"
         const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation"
         const val COMPOSE_UI = "androidx.compose.ui:ui"
+        const val COMPOSE_UI_GRAPHIC = "androidx.compose.ui:ui-graphics"
+        const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:1.5.1"
+
+        //preview tooling
+        const val COMPOSE_UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview"
+        const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling"
+        const val COMPOSE_UI_TEST_JUNIT = "androidx.compose.ui:ui-test-junit4"
+        const val COMPOSE_UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
     }
 
     object TestLibrary {

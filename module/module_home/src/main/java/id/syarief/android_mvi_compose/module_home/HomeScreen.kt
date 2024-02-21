@@ -48,17 +48,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.TabPosition
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Check
@@ -66,6 +55,17 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TabPosition
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -110,6 +110,7 @@ private enum class TabPage {
 /**
  * Shows the entire screen.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home() {
     // String resources.
@@ -169,7 +170,7 @@ fun Home() {
                 onTabSelected = { tabPage = it }
             )
         },
-        backgroundColor = backgroundColor,
+        contentColor = backgroundColor,
         floatingActionButton = {
             HomeFloatingActionButton(
                 extended = lazyListState.isScrollingUp(),
@@ -191,8 +192,7 @@ fun Home() {
             item { Spacer(modifier = Modifier.height(16.dp)) }
             item {
                 Surface(
-                    modifier = Modifier.fillMaxWidth(),
-                    elevation = 2.dp
+                    modifier = Modifier.fillMaxWidth()
                 ) {
                     if (weatherLoading) {
                         LoadingRow()
@@ -300,8 +300,7 @@ private fun EditMessage(shown: Boolean) {
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
-            color = MaterialTheme.colors.secondary,
-            elevation = 4.dp
+            color = MaterialTheme.colorScheme.secondary,
         ) {
             Text(
                 text = "Message",
@@ -344,7 +343,7 @@ private fun Header(
     Text(
         text = title,
         modifier = Modifier.semantics { heading() },
-        style = MaterialTheme.typography.h5
+        style = MaterialTheme.typography.bodyMedium
     )
 }
 
@@ -355,15 +354,12 @@ private fun Header(
  * @param expanded Whether the row should be shown expanded with the topic body.
  * @param onClick Called when the row is clicked.
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun TopicRow(topic: String, expanded: Boolean, onClick: () -> Unit) {
     TopicRowSpacer(visible = expanded)
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
-        elevation = 2.dp,
-        onClick = onClick
     ) {
         Column(
             modifier = Modifier
@@ -380,7 +376,7 @@ private fun TopicRow(topic: String, expanded: Boolean, onClick: () -> Unit) {
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     text = topic,
-                    style = MaterialTheme.typography.body1
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
             if (expanded) {
@@ -420,7 +416,7 @@ private fun HomeTabBar(
 ) {
     TabRow(
         selectedTabIndex = tabPage.ordinal,
-        backgroundColor = backgroundColor,
+        Modifier.background(backgroundColor),
         indicator = { tabPositions ->
             HomeTabIndicator(tabPositions, tabPage)
         }
@@ -626,8 +622,7 @@ private fun TaskRow(task: String, onRemove: () -> Unit) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .swipeToDismiss(onRemove),
-        elevation = 2.dp
+            .swipeToDismiss(onRemove)
     ) {
         Row(
             modifier = Modifier
@@ -641,7 +636,7 @@ private fun TaskRow(task: String, onRemove: () -> Unit) {
             Spacer(modifier = Modifier.width(16.dp))
             Text(
                 text = task,
-                style = MaterialTheme.typography.body1
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }
