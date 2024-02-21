@@ -19,6 +19,7 @@ android {
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Config.kotlinCompilerExtensionVersion
     }
@@ -39,7 +40,6 @@ android {
 
 dependencies {
     implementation(app)
-    implementation(baseComponent)
     implementation(apiProfile)
 
     implementation(Dependency.CoreLibrary.KTX)

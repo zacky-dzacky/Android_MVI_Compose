@@ -1,14 +1,7 @@
-package com.samrez.module_login
+package id.syarief.android_mvi_compose.module_login
 
-import android.os.Bundle
+import android.app.Activity
 import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,23 +13,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExpandLess
-import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Key
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,8 +28,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -55,28 +36,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.samrez.module_login.ui.component.EditText
-import com.samrez.module_login.ui.component.EditTextPassword
-import com.samrez.module_login.ui.component.FullAppBar
-import com.samrez.module_login.ui.theme.AndroidMVIComposeTheme
-import id.syarief.android_mvi_compose.module_login.R
-
-class LoginActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContent {
-            AndroidMVIComposeTheme {
-                LoginPage()
-            }
-        }
-    }
-}
+import id.syarief.base.base_component.BaseTheme
+import id.syarief.base.base_component.EditText
+import id.syarief.base.base_component.EditTextPassword
+import id.syarief.base.base_component.FullAppBar
+import id.syarief.base.base_helper.ModuleManifest
+import id.syarief.base.base_helper.Navigator
 
 @Preview
 @Composable
 fun LoginPagePreview(){
-    AndroidMVIComposeTheme {
+    BaseTheme {
         LoginPage()
     }
 }
@@ -85,7 +55,7 @@ fun LoginPagePreview(){
 @Composable
 fun LoginPage(){
     var backClicked by rememberSaveable { mutableStateOf("First Page") }
-
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             FullAppBar(title = backClicked) {
@@ -156,7 +126,7 @@ fun LoginPage(){
                     .align(Alignment.BottomEnd)
             ){
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { Navigator.navigate(context, ModuleManifest.ACTIVITY_HOME){ (context as Activity).finish() } },
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Text(text = stringResource(R.string.login))

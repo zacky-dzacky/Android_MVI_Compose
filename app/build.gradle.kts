@@ -44,12 +44,14 @@ android {
     dynamicFeatures += setOf(
         Module.MODULE_CONTACT,
         Module.MODULE_HOME,
-        Module.MODULE_DETAIL
+        Module.MODULE_DETAIL,
+        Module.MODULE_LOGIN
     )
 }
 
 dependencies {
-    implementation(baseHelper)
+    api(baseHelper)
+    api(baseComponent)
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.CoreLibrary.SPLASH_SCREEN)
     implementation("androidx.appcompat:appcompat:1.6.1")

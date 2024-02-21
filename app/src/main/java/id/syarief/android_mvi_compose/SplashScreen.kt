@@ -14,6 +14,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import id.syarief.base.base_helper.ModuleManifest
 import id.syarief.base.base_helper.ModuleManifest.ACTIVITY_HOME
+import id.syarief.base.base_helper.ModuleManifest.ACTIVITY_LOGIN
 import id.syarief.base.base_helper.Navigator
 
 class SplashScreen : ComponentActivity() {
@@ -32,7 +33,7 @@ class SplashScreen : ComponentActivity() {
             alpha.duration = 800L
             alpha.doOnEnd {
                 splashScreenView.remove()
-                Navigator.navigate(this@SplashScreen, ACTIVITY_HOME)
+                Navigator.navigate(this@SplashScreen, ACTIVITY_LOGIN)
                 finish()
             }
             alpha.start()
