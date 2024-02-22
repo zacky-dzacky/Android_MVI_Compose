@@ -17,17 +17,17 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
 private val DarkColorPalette = darkColorScheme(
-    primary = Color.Blue,
-    onPrimary = Color.Blue,
-    secondary = Color.Blue,
-    background = Color.White
+    surface = Blue,
+    onSurface = Navy,
+    primary = Navy,
+    onPrimary = Chartreuse
 )
 
 private val LightColorPalette = lightColorScheme(
-    primary = Color.Blue,
-    onPrimary = Color.Blue,
-    secondary = Color.Blue,
-    background = Color.LightGray
+    primary = Teal200,
+    onPrimary = Navy,
+    surface = Blue,
+    onSurface = Color.White,
 
     /* Other default colors to override
     background = Color.White,

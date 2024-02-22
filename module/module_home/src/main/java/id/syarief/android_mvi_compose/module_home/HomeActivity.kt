@@ -10,7 +10,7 @@ class HomeActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                Home()
+                WellnessScreen()
             }
         }
     }

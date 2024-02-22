@@ -2,7 +2,6 @@ package id.syarief.android_mvi_compose.module_home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
@@ -10,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -20,21 +20,37 @@ import id.syarief.base.base_component.BaseTheme
 @Composable
 fun WaterCounter(modifier: Modifier = Modifier){
     var count by rememberSaveable { mutableStateOf(0) }
-    Column {
+    Column(modifier = modifier.padding(16.dp)) {
+        var count by remember { mutableStateOf(0) }
         if (count > 0) {
-            Text(
-                text = "You've had $count glasses.",
-                modifier = modifier.padding(16.dp)
-            )
+            Text("You've had $count glasses.")
         }
-        Button(
-            onClick = { count++ },
-            modifier = Modifier.padding(top = 10.dp),
-            enabled = count < 10
-        ) {
-            Text(text = "Add One")
+        Button(onClick = { count++ }, Modifier.padding(top = 8.dp), enabled = count < 10) {
+            Text("Add one")
         }
     }
+}
+
+@Composable
+fun StatelessCounter(
+    count: Int,
+    onIncrement: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier.padding(16.dp)) {
+        if (count > 0) {
+            Text("You've had $count glasses.")
+        }
+        Button(onClick = onIncrement, Modifier.padding(top = 8.dp), enabled = count < 10) {
+            Text("Add one")
+        }
+    }
+}
+
+@Composable
+fun StatefulCounter(modifier: Modifier = Modifier) {
+    var count by rememberSaveable { mutableStateOf(0) }
+    StatelessCounter(count, { count++ }, modifier)
 }
 
 @Preview
@@ -42,7 +58,7 @@ fun WaterCounter(modifier: Modifier = Modifier){
 fun Preview(){
     BaseTheme {
         Surface(Modifier.fillMaxSize()) {
-            WaterCounter()
+            StatefulCounter()
         }
     }
 }
