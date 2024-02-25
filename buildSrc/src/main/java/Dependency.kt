@@ -33,6 +33,10 @@ class Dependency {
         const val KTOR_SERIALIZATION = "io.ktor:ktor-serialization-gson:2.1.3"
         const val KTOR_LOGGING = "io.ktor:ktor-client-logging:2.1.3"
         const val KTOR_CONTENTNEGOTIATION = "io.ktor:ktor-client-content-negotiation:2.1.3"
+
+        const val RETROFIT ="com.squareup.retrofit2:retrofit:2.9.0"
+        const val RETROFIT_GSON ="com.squareup.retrofit2:converter-gson:2.9.0"
+        const val OKHTTP_INTERCEPTOR ="com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
     }
 }
 fun DependencyHandler.importUnitTest(testImplementation: Boolean = true) {
@@ -51,11 +55,8 @@ fun DependencyHandler.importAndroidTest(androidTestImplementation: Boolean = tru
 
 fun DependencyHandler.importBaseAPI() {
     val configName = "implementation"
-    add(configName, Dependency.APILibrary.KTOR_ANDROID)
-    add(configName, Dependency.APILibrary.KTOR_CONTENTNEGOTIATION)
-    add(configName, Dependency.APILibrary.KTOR_CORE)
-    add(configName, Dependency.APILibrary.KTOR_SERIALIZATION)
-    add(configName, Dependency.APILibrary.KTOR_LOGGING)
+    add(configName, Dependency.APILibrary.RETROFIT)
+    add(configName, Dependency.APILibrary.RETROFIT_GSON)
 }
 
 inline val DependencyHandler.apiProfile get() = project(":api_profile")

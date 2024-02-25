@@ -36,10 +36,14 @@ android {
 dependencies {
 
     api(Dependency.CoreLibrary.KTX)
-    api(Dependency.APILibrary.KTOR_CORE)
-    api(Dependency.APILibrary.KTOR_ANDROID)
-    api(Dependency.APILibrary.KTOR_SERIALIZATION)
-    api(Dependency.APILibrary.KTOR_LOGGING)
+//    api(Dependency.APILibrary.KTOR_CORE)
+//    api(Dependency.APILibrary.KTOR_ANDROID)
+//    api(Dependency.APILibrary.KTOR_SERIALIZATION)
+//    api(Dependency.APILibrary.KTOR_LOGGING)
+
+    api(Dependency.APILibrary.RETROFIT)
+    api(Dependency.APILibrary.RETROFIT_GSON)
+
     api("io.ktor:ktor-client-content-negotiation:2.1.3")
     api("com.google.code.gson:gson:2.8.9")
     api("io.insert-koin:koin-ktor:3.1.5")
