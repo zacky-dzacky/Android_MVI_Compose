@@ -34,6 +34,11 @@ android {
 }
 
 dependencies {
+    implementation("io.ktor:ktor-client-core:2.1.3")
+    implementation("io.ktor:ktor-client-android:2.1.3")
+    implementation("io.ktor:ktor-serialization-gson:2.1.3")
+    implementation("io.ktor:ktor-client-logging:2.1.3")
+    implementation("io.ktor:ktor-client-content-negotiation:2.1.3")
     importBaseAPI()
     importUnitTest()
     importAndroidTest()

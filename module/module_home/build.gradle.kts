@@ -43,7 +43,9 @@ android {
 dependencies {
     implementation(app)
     implementation(baseComponent)
+    implementation(baseMvi)
     implementation(apiProfile)
+    implementation(apiList)
     implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()
