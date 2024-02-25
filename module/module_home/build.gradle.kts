@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.com.google.api.services.storage.Storage.Objects.Compose
+
 plugins {
     id("com.android.dynamic-feature")
     id("org.jetbrains.kotlin.android")
@@ -19,6 +21,7 @@ android {
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Config.kotlinCompilerExtensionVersion
     }
@@ -41,8 +44,7 @@ dependencies {
     implementation(app)
     implementation(baseComponent)
     implementation(apiProfile)
-
+    implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()
-    importAndroidTest()
 }

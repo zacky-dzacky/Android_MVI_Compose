@@ -3,4 +3,5 @@
     <string name="title_module_contact">Contact</string>
     <string name="title_module_home">Home</string>
     <string name="title_module_detail">Detail</string>
+    <string name="title_module_login">Login</string>
 </resources>

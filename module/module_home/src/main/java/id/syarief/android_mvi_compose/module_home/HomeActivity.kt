@@ -8,10 +8,9 @@ import id.syarief.base.base_component.BaseTheme
 class HomeActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.home_activity)
         setContent {
             BaseTheme {
-                Home()
+                WellnessScreen()
             }
         }
     }
