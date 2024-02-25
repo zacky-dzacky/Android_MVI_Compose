@@ -5,10 +5,11 @@ import android.content.Intent
 
 object Navigator {
 
-    fun navigate(context: Context, pageName: String) {
+    fun navigate(context: Context, pageName: String, callback: (() -> Unit)? = null) {
         val intent = Intent()
         intent.setClassName(context.packageName, pageName)
         context.startActivity(intent)
+        callback?.invoke()
     }
 
     fun navigateIntent(pageName: String) {
