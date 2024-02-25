@@ -44,6 +44,7 @@ dependencies {
     implementation(app)
     implementation(baseComponent)
     implementation(apiProfile)
+    implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()
 }
