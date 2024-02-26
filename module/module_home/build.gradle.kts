@@ -46,6 +46,8 @@ dependencies {
     implementation(baseMvi)
     implementation(apiProfile)
     implementation(apiList)
+    implementation(Dependency.KoinLibrary.koinAndroid)
+    implementation(Dependency.KoinLibrary.koinAndroidxCompose)
     implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
     importUnitTest()

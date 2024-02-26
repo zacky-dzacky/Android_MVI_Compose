@@ -9,15 +9,14 @@ import id.syarief.android.mvi_compose.api.api_list.data.api.GithubAPI
 import id.syarief.android.mvi_compose.api.api_list.domain.repository.GithubRepositoryImpl
 import id.syarief.base.base_component.BaseTheme
 import kotlinx.coroutines.Dispatchers
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class HomeActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                val viewModel: HomeViewModel by viewModels{
-                    HomeViewModelFactory(GithubRepositoryImpl(null, Dispatchers.IO))
-                }
+                val viewModel = getViewModel<HomeViewModel>()
                 WellnessScreen2(
                     state = viewModel.viewState.value,
                     effectFlow = viewModel.effect,

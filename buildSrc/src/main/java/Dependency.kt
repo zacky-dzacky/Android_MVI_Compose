@@ -30,6 +30,15 @@ class Dependency {
         const val COMPOSE_UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
     }
 
+    object KoinLibrary {
+        object Version {
+            const val koin = "3.1.5"
+        }
+
+        const val koinAndroid = "io.insert-koin:koin-android:${Version.koin}"
+        const val koinAndroidxCompose = "io.insert-koin:koin-androidx-compose:${Version.koin}"
+    }
+
     object TestLibrary {
         const val JUNIT = "junit:junit:4.13.2"
         const val EXT_JUNIT = "androidx.test.ext:junit:1.1.5"
