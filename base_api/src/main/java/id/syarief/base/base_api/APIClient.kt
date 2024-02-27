@@ -1,12 +1,11 @@
 package id.syarief.base.base_api
 
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.android.Android
 
 object APIClient {
     private const val AUTHORIZATION_HEADER = "Authorization"
     private var API_KEY: String = "Your API Key here"
-    private val client = HttpClient(Android) {
+//    private val client = HttpClient(Android) {
 //        defaultRequest {
 //            header(AUTHORIZATION_HEADER, API_KEY)
 //        }
@@ -20,7 +19,7 @@ object APIClient {
 //            )
 //        }
 
-    }
+//    }
 
-    val getInstance = client
+//    val getInstance = client
 }

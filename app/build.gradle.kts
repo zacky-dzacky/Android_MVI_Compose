@@ -52,13 +52,13 @@ android {
 dependencies {
     api(baseHelper)
     api(baseComponent)
+    implementation(baseApi)
+    implementation(apiList)
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.CoreLibrary.SPLASH_SCREEN)
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    importBaseAPI()
-    implementation(apiList)
     implementation(Dependency.KoinLibrary.koinAndroid)
     implementation(Dependency.KoinLibrary.koinAndroidxCompose)
 }

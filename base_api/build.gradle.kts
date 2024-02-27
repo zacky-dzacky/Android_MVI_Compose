@@ -43,6 +43,9 @@ dependencies {
 
     api(Dependency.APILibrary.RETROFIT)
     api(Dependency.APILibrary.RETROFIT_GSON)
+    api(Dependency.APILibrary.OKHTTP_INTERCEPTOR)
+    implementation(Dependency.KoinLibrary.koinAndroid)
+    implementation(Dependency.KoinLibrary.koinAndroidxCompose)
 
     api("io.ktor:ktor-client-content-negotiation:2.1.3")
     api("com.google.code.gson:gson:2.8.9")

@@ -11,7 +11,6 @@ val repositoryListModule = module {
     single {
         get<Retrofit>().create(GithubAPI::class.java)
     }
-
     factory<GithubRepository> {
         GithubRepositoryImpl(
             githubAPI = get()
