@@ -1,5 +1,6 @@
 package id.syarief.base.base_api.di
 
+import id.syarief.base.base_api.APIClient
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -24,7 +25,7 @@ val networkModule = module {
         Retrofit.Builder()
             .client(get<OkHttpClient>())
             .addConverterFactory(get<GsonConverterFactory>())
-            .baseUrl("https://api.github.com/")
+            .baseUrl(APIClient.ENDPOINT)
             .build()
     }
 }

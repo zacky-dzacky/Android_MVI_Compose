@@ -3,24 +3,23 @@ package id.syarief.android_mvi_compose.module_home
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.lifecycle.viewmodel.compose.viewModel
-import id.syarief.android.mvi_compose.api.api_list.data.api.GithubAPI
-import id.syarief.android.mvi_compose.api.api_list.domain.repository.GithubRepositoryImpl
+import id.syarief.android_mvi_compose.module_home.di.HomeInstance
 import id.syarief.base.base_component.BaseTheme
-import kotlinx.coroutines.Dispatchers
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity: ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        HomeInstance.init()
         setContent {
+            val vmList: HomeViewModel by viewModel<HomeViewModel>()
             BaseTheme {
-                val viewModel = getViewModel<HomeViewModel>()
                 WellnessScreen2(
-                    state = viewModel.viewState.value,
-                    effectFlow = viewModel.effect,
-                    onEventSent = { event ->  viewModel.setEvent(event) },
+                    state = vmList.viewState.value,
+                    effectFlow = vmList.effect,
+                    onEventSent = { event ->  vmList.setEvent(event) },
                     onNavigationRequested = { navigationEffect ->
                         if (navigationEffect is UsersContract.Effect.Navigation.ToRepos) {
 //                            navController.navigateToRepos(navigationEffect.userId)

@@ -78,8 +78,8 @@ fun DependencyHandler.importBaseAPI() {
     add(configName, Dependency.APILibrary.RETROFIT_GSON)
 }
 
-inline val DependencyHandler.apiProfile get() = project(":api_profile")
-inline val DependencyHandler.apiList get() = project(":api_list")
+inline val DependencyHandler.serviceProfile get() = project(":service_profile")
+inline val DependencyHandler.serviceList get() = project(":service_list")
 inline val DependencyHandler.baseApi get() = project(":base_api")
 inline val DependencyHandler.baseComponent get() = project(":base_component")
 inline val DependencyHandler.baseHelper get() = project(":base_helper")
