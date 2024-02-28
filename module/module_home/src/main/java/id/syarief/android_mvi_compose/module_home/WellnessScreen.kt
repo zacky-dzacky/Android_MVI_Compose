@@ -1,5 +1,6 @@
 package id.syarief.android_mvi_compose.module_home
 
+import android.util.Log
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -46,7 +47,7 @@ fun WellnessScreen2(
             else -> WellnessTaskList(
                 modifier = Modifier,
                 list = state.users,
-                onCloseTask = { },//task -> wellnessViewModel.remove(task) },
+                onCloseTask = { task -> Log.d("asdfasdf", "${task.userId}") },//task -> wellnessViewModel.remove(task) },
                 onCheckTask = { task, checked -> }//task, checked -> wellnessViewModel.changeTaskCheced(task, checked) }
             ) //{ onEventSent(UsersContract.Event.UserSelection(it)) }
         }
