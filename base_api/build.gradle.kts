@@ -9,7 +9,6 @@ android {
 
     defaultConfig {
         minSdk = Config.minSdk
-        targetSdk = Config.targetSdk
 
         testInstrumentationRunner = Config.testInstrumentationRunner
         consumerProguardFiles(Dependency.Proguard.CONSUMER_RULES)
@@ -36,10 +35,6 @@ android {
 dependencies {
 
     api(Dependency.CoreLibrary.KTX)
-//    api(Dependency.APILibrary.KTOR_CORE)
-//    api(Dependency.APILibrary.KTOR_ANDROID)
-//    api(Dependency.APILibrary.KTOR_SERIALIZATION)
-//    api(Dependency.APILibrary.KTOR_LOGGING)
 
     api(Dependency.APILibrary.RETROFIT)
     api(Dependency.APILibrary.RETROFIT_GSON)
