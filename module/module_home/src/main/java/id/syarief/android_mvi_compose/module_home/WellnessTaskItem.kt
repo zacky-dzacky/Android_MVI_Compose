@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import id.syarief.android.mvi_compose.api.api_list.data.dto.User
 import id.syarief.base.base_component.BaseTheme
 
 @Composable
@@ -50,16 +51,16 @@ fun WellnessTaskItem(
 @Composable
 fun WellnessTaskList(
     modifier: Modifier,
-    onCloseTask: (WellnessTask) -> Unit,
-    onCheckTask: (WellnessTask, Boolean) -> Unit,
-    list: List<WellnessTask>
+    onCloseTask: (User) -> Unit,
+    onCheckTask: (User, Boolean) -> Unit,
+    list: List<User>
 ){
     LazyColumn(modifier = modifier) {
-        items(items = list, key = {task -> task.id} ) { task ->
+        items(items = list, key = {task -> task.userId} ) { task ->
             WellnessTaskItem(
-                taskName = task.label,
+                taskName = task.userId,
                 onClose = { onCloseTask(task) },
-                checked = task.checked,
+                checked = false, //task.checked,
                 onCheckTask = { onCheckTask(task, it) }
             )
         }
@@ -76,10 +77,10 @@ fun WellnessTaskItemPreview() {
     }
 }
 
-data class WellnessTask(
-    val id: Int,
-    val label: String,
-    val initialCheck: Boolean = false
-){
-    var checked by mutableStateOf(initialCheck)
-}
+//data class WellnessTask(
+//    val id: Int,
+//    val label: String,
+//    val initialCheck: Boolean = false
+//){
+//    var checked by mutableStateOf(initialCheck)
+//}
