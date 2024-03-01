@@ -46,6 +46,10 @@ class Dependency {
         const val ANNOTATION = "androidx.annotation:annotation:1.3.0"
     }
 
+    object ImageLibrary {
+        const val GLIDE = "com.github.bumptech.glide:compose:1.0.0-beta01"
+    }
+
     object APILibrary {
         const val KTOR_CORE = "io.ktor:ktor-client-core:2.1.3"
         const val KTOR_ANDROID = "io.ktor:ktor-client-android:2.1.3"

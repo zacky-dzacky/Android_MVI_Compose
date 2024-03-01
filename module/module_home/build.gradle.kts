@@ -48,5 +48,10 @@ dependencies {
     implementation(Dependency.KoinLibrary.koinAndroidxCompose)
     implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
+    implementation(Dependency.ImageLibrary.GLIDE)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.0.0-beta07")
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
     importUnitTest()
 }
