@@ -1,16 +1,16 @@
-@file:OptIn(ExperimentalGlideComposeApi::class)
-
 package id.syarief.android_mvi_compose.module_home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Card
@@ -22,16 +22,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
-import com.bumptech.glide.Glide
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
-import com.bumptech.glide.integration.compose.placeholder
+//import com.skydoves.landscapist.glide.GlideImage
+//import com.bumptech.glide.Glide
+//import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+//import com.bumptech.glide.integration.compose.GlideImage
+//import com.bumptech.glide.integration.compose.placeholder
 //import coil.compose.AsyncImage
 import id.syarief.android.mvi_compose.api.api_list.data.dto.User
 import id.syarief.base.base_component.BaseTheme
@@ -50,9 +52,20 @@ fun CoilImage(
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize().clip(CircleShape),
     )
 }
+
+//@Preview
+//@Composable
+//fun asdf(){
+//    Surface {
+//        GlideImage(
+//            model = "https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-person-icon.png",
+//            contentDescription = null
+//        )
+//    }
+//}
 
 @Composable
 fun WellnessTaskItem(
@@ -62,28 +75,33 @@ fun WellnessTaskItem(
     checked: Boolean,
     onCheckTask: ( Boolean) -> Unit
 ) {
-    Card(modifier = modifier) {
-        Row (
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp)
-        ){
-            CoilImage(url = user.avatarUrl, contentDescription = "")
-            Text(
-                text = user.userId,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(start = 16.dp)
-            )
-            Checkbox(
-                checked = checked,
-                onCheckedChange = { onCheckTask(it)}
-            )
-            IconButton(onClick = onClose ) {
-                Icon(Icons.Filled.Close, contentDescription = "Close")
+    Spacer(modifier = Modifier.height(8.dp))
+    Card(modifier = modifier.padding(horizontal = 8.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp)
+            ) {
+                CoilImage(
+                    modifier = Modifier.size(30.dp),
+                    url = user.avatarUrl,
+                    contentDescription = "",
+                )
+                Text(
+                    text = user.userId,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(start = 16.dp)
+                )
+                Checkbox(
+                    checked = checked,
+                    onCheckedChange = { onCheckTask(it) }
+                )
+                IconButton(onClick = onClose) {
+                    Icon(Icons.Filled.Close, contentDescription = "Close")
+                }
             }
-        }
     }
 
 }
@@ -103,11 +121,12 @@ fun WellnessTaskList(
                 checked = false, //task.checked,
                 onCheckTask = { onCheckTask(task, it) }
             )
+
         }
     }
 }
 
-@OptIn(ExperimentalGlideComposeApi::class)
+//@OptIn(ExperimentalGlideComposeApi::class)
 @Preview
 @Composable
 fun WellnessTaskItemPreview() {

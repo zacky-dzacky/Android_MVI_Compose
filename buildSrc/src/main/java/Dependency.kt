@@ -47,7 +47,7 @@ class Dependency {
     }
 
     object ImageLibrary {
-        const val GLIDE = "com.github.bumptech.glide:compose:1.0.0-beta01"
+        const val COIL = "io.coil-kt:coil-compose:2.0.0-rc01"
     }
 
     object APILibrary {
