@@ -37,7 +37,6 @@ fun WellnessScreen2(
     onNavigationRequested: (navigationEffect: UsersContract.Effect.Navigation) -> Unit
 ) {
     Column(modifier = Modifier) {
-//        StatefulCounter()
         when {
             state.isLoading -> Text(text = "Loading")
             state.isError -> Text(text = "Error")//NetworkError { onEventSent(UsersContract.Event.Retry) }
@@ -48,12 +47,6 @@ fun WellnessScreen2(
                 onCheckTask = { task, checked -> }//task, checked -> wellnessViewModel.changeTaskCheced(task, checked) }
             ) //{ onEventSent(UsersContract.Event.UserSelection(it)) }
         }
-//        WellnessTaskList(
-//            modifier = Modifier,
-//            list = wellnessViewModel.tasks,
-//            onCloseTask = { task -> wellnessViewModel.remove(task) },
-//            onCheckTask = { task, checked -> wellnessViewModel.changeTaskCheced(task, checked) }
-//        )
     }
 }
 
