@@ -55,6 +55,8 @@ dependencies {
     implementation(baseApi)
     implementation(serviceList)
     implementation(serviceProfile)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.5.0")
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.CoreLibrary.SPLASH_SCREEN)
     implementation(Dependency.KoinLibrary.koinAndroid)

@@ -44,16 +44,17 @@ import id.syarief.base.base_helper.Navigator
 @Composable
 fun LoginPagePreview(){
     BaseTheme {
-        LoginPage()
+        LoginPage(Modifier)
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginPage(){
+fun LoginPage(modifier: Modifier){
     var backClicked by rememberSaveable { mutableStateOf("First Page") }
     val context = LocalContext.current
     Scaffold(
+        modifier = modifier,
         topBar = {
             FullAppBar(title = backClicked) {
                 backClicked = "Back Clicked"
@@ -86,7 +87,7 @@ fun LoginPage(){
         },
     ) { innerPadding ->
         Column(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .padding(innerPadding),
