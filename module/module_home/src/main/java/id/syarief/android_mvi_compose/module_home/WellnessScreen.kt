@@ -30,7 +30,7 @@ fun WellnessScreen(
 }
 
 @Composable
-fun WellnessScreen2(
+fun RepoScreen(
     state: UsersContract.State,
     effectFlow: Flow<UsersContract.Effect>?,
     onEventSent: (event: UsersContract.Event) -> Unit,

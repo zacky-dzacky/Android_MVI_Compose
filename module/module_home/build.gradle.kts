@@ -49,5 +49,7 @@ dependencies {
     implementation(Dependency.ComposeLibrary.COMPOSE_VIEW_MODEL)
     implementation(Dependency.CoreLibrary.KTX)
     implementation(Dependency.ImageLibrary.COIL)
+    implementation(Dependency.Android.activityCompose)
+    implementation(Dependency.Android.navigationCompose)
     importUnitTest()
 }

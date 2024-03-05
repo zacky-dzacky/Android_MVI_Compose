@@ -20,6 +20,8 @@ class UsersContract {
     sealed class Effect : ViewSideEffect {
         object DataWasLoaded : Effect()
 
+        object Back: Navigation()
+
         sealed class Navigation : Effect() {
             data class ToRepos(val userId: String): Navigation()
         }
