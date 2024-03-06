@@ -52,7 +52,7 @@ class Dependency {
 
     object Android {
         object Version {
-            const val lifecycle = "2.5.0-rc01"
+            const val lifecycle = "2.4.0-alpha06"
             const val activityCompose = "1.4.0"
         }
         // Navigation

@@ -1,4 +1,4 @@
-package id.syarief.android_mvi_compose.module_home
+package id.syarief.android_mvi_compose.module_home.ui.feature.users
 
 import id.syarief.android.mvi_compose.api.api_list.data.dto.User
 import id.syarief.android_mvi_compose.base.ViewEvent
@@ -20,10 +20,8 @@ class UsersContract {
     sealed class Effect : ViewSideEffect {
         object DataWasLoaded : Effect()
 
-        object Back: Navigation()
-
         sealed class Navigation : Effect() {
-            data class ToRepos(val userId: String): Navigation()
+            data class ToDetail(val userId: String): Navigation()
         }
     }
 }

@@ -1,11 +1,11 @@
-package id.syarief.android_mvi_compose.module_home
+package id.syarief.android_mvi_compose.module_home.ui.feature.users
 
 import androidx.lifecycle.viewModelScope
 import id.syarief.android.mvi_compose.api.api_list.data.repository.GithubRepository
 import id.syarief.android_mvi_compose.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-public class HomeViewModel(
+public class UsersViewModel(
     private val githubRepository: GithubRepository
 ) : BaseViewModel<UsersContract.Event, UsersContract.State, UsersContract.Effect>() {
 
@@ -54,7 +54,11 @@ public class HomeViewModel(
 
     override fun handleEvents(event: UsersContract.Event) {
         when (event) {
-            is UsersContract.Event.UserSelection -> setEffect { UsersContract.Effect.Navigation.ToRepos(event.user.userId) }
+            is UsersContract.Event.UserSelection -> setEffect {
+                UsersContract.Effect.Navigation.ToDetail(
+                    event.user.userId
+                )
+            }
             is UsersContract.Event.Retry -> getUsers()
         }
     }

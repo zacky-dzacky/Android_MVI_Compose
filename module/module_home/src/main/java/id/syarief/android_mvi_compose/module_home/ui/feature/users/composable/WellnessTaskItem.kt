@@ -1,6 +1,5 @@
-package id.syarief.android_mvi_compose.module_home
+package id.syarief.android_mvi_compose.module_home.ui.feature.users.composable
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -26,7 +25,6 @@ import coil.compose.rememberAsyncImagePainter
 import id.syarief.android.mvi_compose.api.api_list.data.dto.User
 import id.syarief.base.base_component.BaseTheme
 import id.syarief.base.base_component.FullAppBar
-import id.syarief.base.base_component.TextToolbar
 
 @Composable
 fun CoilImage(
