@@ -29,7 +29,7 @@ fun HomeNavigation(navController: NavHostController) {
         ) { backStackEntry ->
             val userId = requireNotNull(backStackEntry.arguments?.getString(USER_ID)) { "User id is required as an argument" }
             DetailScreenDestination(
-                userID = userId,
+                userDetail = userId,
                 navController = navController
             )
         }

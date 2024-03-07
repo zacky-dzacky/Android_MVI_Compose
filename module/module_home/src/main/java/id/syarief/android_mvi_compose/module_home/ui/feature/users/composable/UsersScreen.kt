@@ -34,11 +34,12 @@ fun UsersScreen(
                 else -> WellnessTaskList(
                     modifier = Modifier,
                     list = state.users,
-                    onCloseTask = { task ->
-                        Log.d(
-                            "asdfasdf",
-                            "${task.userId}"
-                        )
+                    onClickCard = { task ->
+//                        Log.d(
+//                            "asdfasdf",
+//                            "${task.userId}"
+//                        )
+                                  onNavigationRequested(UsersContract.Effect.Navigation.ToDetail(task.userId))
                     },//task -> wellnessViewModel.remove(task) },
                     onCheckTask = { task, checked -> }//task, checked -> wellnessViewModel.changeTaskCheced(task, checked) }
                 ) //{ onEventSent(UsersContract.Event.UserSelection(it)) }
