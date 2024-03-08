@@ -50,6 +50,7 @@ dependencies {
     api(Dependency.ComposeLibrary.COMPOSE_UI_TOOLING_PREVIEW)
     api(Dependency.ComposeLibrary.COMPOSE_MATERIAL_ICON_EXTENDED)
     androidTestApi(composeBom)
+    implementation(Dependency.ImageLibrary.COIL)
     debugImplementation(Dependency.ComposeLibrary.COMPOSE_UI_TOOLING)
     androidTestApi(Dependency.ComposeLibrary.COMPOSE_UI_TEST_JUNIT)
     debugApi(Dependency.ComposeLibrary.COMPOSE_UI_TEST_MANIFEST)

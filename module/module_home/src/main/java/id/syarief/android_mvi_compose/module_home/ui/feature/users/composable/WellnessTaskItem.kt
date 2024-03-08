@@ -1,7 +1,5 @@
-package id.syarief.android_mvi_compose.module_home
+package id.syarief.android_mvi_compose.module_home.ui.feature.users.composable
 
-import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,32 +20,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
 import id.syarief.android.mvi_compose.api.api_list.data.dto.User
+import id.syarief.android.mvi_compose.api.api_list.data.dto.UserDetail
 import id.syarief.base.base_component.BaseTheme
+import id.syarief.base.base_component.CoilImage
 import id.syarief.base.base_component.FullAppBar
-import id.syarief.base.base_component.TextToolbar
 
-@Composable
-fun CoilImage(
-    url: String,
-    contentDescription: String?,
-    modifier: Modifier = Modifier
-) {
-    val painter = rememberAsyncImagePainter(url)
-    Image(
-        painter = painter,
-        contentDescription = contentDescription,
-        modifier = modifier
-            .fillMaxSize()
-            .clip(CircleShape),
-    )
-}
 
 @Composable
 fun WellnessTaskItem(
     user: User,
-    onClick: (String) -> Unit,
+    onClickCard: (String) -> Unit,
     modifier: Modifier = Modifier,
     checked: Boolean,
     onCheckTask: ( Boolean) -> Unit
@@ -60,7 +43,7 @@ fun WellnessTaskItem(
                     .fillMaxSize()
                     .padding(horizontal = 16.dp, vertical = 10.dp)
                     .clickable(onClick = {
-                        onClick(user.userId)
+                        onClickCard(user.userId)
                     })
             ) {
                 CoilImage(
@@ -84,7 +67,7 @@ fun WellnessTaskItem(
 @Composable
 fun WellnessTaskList(
     modifier: Modifier,
-    onCloseTask: (User) -> Unit,
+    onClickCard: (User) -> Unit,
     onCheckTask: (User, Boolean) -> Unit,
     list: List<User>
 ){
@@ -92,7 +75,7 @@ fun WellnessTaskList(
         items(items = list, key = {task -> task.userId} ) { task ->
             WellnessTaskItem(
                 user = task,
-                onClick = { onCloseTask(task) },
+                onClickCard = { onClickCard(task) },
                 checked = false, //task.checked,
                 onCheckTask = { onCheckTask(task, it) }
             )

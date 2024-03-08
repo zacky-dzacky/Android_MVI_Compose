@@ -50,6 +50,17 @@ class Dependency {
         const val COIL = "io.coil-kt:coil-compose:2.0.0-rc01"
     }
 
+    object Android {
+        object Version {
+            const val lifecycle = "2.4.0-alpha06"
+            const val activityCompose = "1.4.0"
+        }
+        // Navigation
+        const val navigationCompose = "androidx.navigation:navigation-compose:${Version.lifecycle}"
+        const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.lifecycle}"
+        const val activityCompose = "androidx.activity:activity-compose:${Version.activityCompose}"
+    }
+
     object APILibrary {
         const val KTOR_CORE = "io.ktor:ktor-client-core:2.1.3"
         const val KTOR_ANDROID = "io.ktor:ktor-client-android:2.1.3"

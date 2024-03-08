@@ -12,11 +12,6 @@ data class Person(var name: String?, var age: Int)
 class MVIApplicaion: Application() {
     override fun onCreate() {
         super.onCreate()
-
-        val person = Person(age = 10, name = "Name", )
-
-
-
         startKoin {
             androidLogger(Level.ERROR)
             androidContext(this@MVIApplicaion)
