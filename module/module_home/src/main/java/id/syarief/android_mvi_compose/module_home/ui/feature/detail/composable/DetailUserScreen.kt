@@ -27,41 +27,61 @@ import id.syarief.android_mvi_compose.module_home.ui.feature.detail.DetailUserCo
 import id.syarief.base.base_component.BaseTheme
 import id.syarief.base.base_component.CoilImage
 import id.syarief.base.base_component.FullAppBar
+import kotlinx.coroutines.flow.Flow
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailUserScreen(
-    userID: String,
+    state: DetailUserContract.State,
+    effectFlow: Flow<DetailUserContract.Effect>?,
+    onEventSent: (event: DetailUserContract.Event) -> Unit,
     onNavigationRequested: (navigationEffect: DetailUserContract.Effect.Back) -> Unit
 ) {
-    Scaffold(
-        modifier = Modifier.background(Color.White),
-        topBar = {
-            FullAppBar(
-                title = "Detail User",
-                showBack = true
-            ) {
-                onNavigationRequested(DetailUserContract.Effect.Back)
-            }
-        },
-        content = {
-            Column (
-                modifier = Modifier.fillMaxSize().padding(vertical = 60.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                CoilImage(
-                    url = "https://t3.ftcdn.net/jpg/03/02/88/46/240_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
-                    contentDescription = null,
-                    modifier = Modifier
-                        .padding(vertical = 16.dp)
-                        .size(70.dp)
-                        .clip(CircleShape)
-                )
-                Text(text = userID, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+    Column {
+        FullAppBar(title = "Detail User", showBack = true) {
+            onNavigationRequested(DetailUserContract.Effect.Back)
+        }
+        Column(modifier = Modifier) {
+            when {
+                state.isLoading -> Text(text = "")
+                state.isError -> Text(text = "Error")
+                else -> {
+                    Column (
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(vertical = 60.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ){
+                        CoilImage(
+                            url = state.user.avatarUrl,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .padding(vertical = 16.dp)
+                                .size(70.dp)
+                                .clip(CircleShape)
+                        )
+                        Text(text = state.user.name, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                    }
+                }
             }
         }
-    )
+    }
+
+//    Scaffold(
+//        modifier = Modifier.background(Color.White),
+//        topBar = {
+//            FullAppBar(
+//                title = "Detail User",
+//                showBack = true
+//            ) {
+//                onNavigationRequested(DetailUserContract.Effect.Back)
+//            }
+//        },
+//        content = {
+//
+//        }
+//    )
 
 }
 
@@ -70,9 +90,9 @@ fun DetailUserScreen(
 fun ShowDetailUserScree() {
     BaseTheme {
         Surface {
-            DetailUserScreen(onNavigationRequested = {},
-                userID = "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=800"
-            )
+//            DetailUserScreen(onNavigationRequested = {},
+//                userID = "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=800"
+//            )
         }
     }
 }

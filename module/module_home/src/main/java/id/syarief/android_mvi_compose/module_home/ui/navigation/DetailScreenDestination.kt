@@ -9,10 +9,13 @@ import org.koin.androidx.compose.viewModel
 import org.koin.core.parameter.parametersOf
 
 @Composable
-fun DetailScreenDestination(userDetail: String, navController: NavController) {
+fun DetailScreenDestination(
+    userDetail: String, navController: NavController) {
     val viewModel: DetailUserViewModel by viewModel<DetailUserViewModel>{ parametersOf(userDetail) }
     DetailUserScreen(
-        userID = userDetail,
+        state = viewModel.viewState.value,
+        effectFlow = viewModel.effect,
+        onEventSent = {event ->  },
         onNavigationRequested = {
             if (it is DetailUserContract.Effect.Back) {
                 navController.popBackStack()
