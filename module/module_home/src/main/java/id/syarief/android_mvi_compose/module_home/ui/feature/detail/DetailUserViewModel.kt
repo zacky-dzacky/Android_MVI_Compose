@@ -12,21 +12,20 @@ class DetailUserViewModel(
 ) : BaseViewModel<DetailUserContract.Event, DetailUserContract.State, DetailUserContract.Effect>() {
 
     init {
-        syncData()
+        getDetailUsers(userID)
     }
 
     private fun syncData() {
-        viewModelScope.launch {
-            getDetailUsers(userID)
-        }
+//        viewModelScope.launch {
+//            getDetailUsers(userID)
+//        }
     }
-
-    private fun getDetailUsers(userID: String) {
+    fun getDetailUsers(userID: String) {
         viewModelScope.launch {
             setState { copy(isLoading = true, isError = false) }
             githubRepository.getUser(userID)
                 .onSuccess {  user ->
-                    setState { copy(user = user ?: UserDetail()) }
+                    setState { copy(user = user ?: UserDetail(), isLoading = false) }
                     setEffect { DetailUserContract.Effect.DataWasLoaded }
                 }
                 .onFailure {
@@ -35,12 +34,17 @@ class DetailUserViewModel(
         }
     }
 
-    override fun setInitialState(): DetailUserContract.State {
-        TODO("Not yet implemented")
-    }
+    override fun setInitialState() =  DetailUserContract.State (
+        user = UserDetail(),
+        isLoading = true,
+        isError = false
+
+    )
 
     override fun handleEvents(event: DetailUserContract.Event) {
-        TODO("Not yet implemented")
+        when (event) {
+            is DetailUserContract.Event.Retry -> getDetailUsers(userID)
+        }
     }
 
 }
